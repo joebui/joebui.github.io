@@ -1,0 +1,39 @@
+---
+layout: page
+title: Categories
+permalink: /categories/
+---
+
+<div class="row">
+  <div class="col-md-3">
+    <ul id="tabTitle" class="nav nav-pills nav-stacked">
+      {% for category in site.categories %}
+          <li>
+            <a data-toggle="tab" href="#{{category[0]}}">
+              {{ category[0] | capitalize }}
+              <span class="badge pull-right">{{ category[1].size }}</span>
+            </a>
+          </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col-md-9">
+    <div id="content" class="tab-content">
+      {% for category in site.categories %}
+          {% assign catename = category[0] %}
+            <div id="{{catename}}" class="tab-pane fade">
+              {% for post in site.categories[catename] %}
+                <p>
+                  <a href="{{ post.url | prepend: site.baseurl }}">
+                    {{ post.title }}
+                    <span class="text-muted"> - {{ post.date | date: "%b %-d, %Y" }}</span>
+                  </a>
+                </p>
+              {% endfor %}
+            </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<br>

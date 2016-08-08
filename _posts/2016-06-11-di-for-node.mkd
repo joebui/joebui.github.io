@@ -1,0 +1,78 @@
+---
+layout: post
+title: di4js - A simple dependency injection package for Javascript
+author: joebui
+categories: [tools]
+---
+
+> If you have worked with ASP.NET MVC before, you may know that there is a package called 
+> Autofac that help you apply Dependency Injection (DI) to your project. There are many packages 
+> for NodeJS on npm and I found out one that is very easy-to-understand and easy-to-apply: di4js.
+
+# What is DI???
+
+DI is the implementation of Inversion of Control (IoC). IoC means that objects don't create other objects 
+on which they rely on to perform some tasks. The benefits of using DI are:
+
+-   Reduce class coupling
+-   Increase code reusing
+-   Increase code maintenance
+-   Easy to apply unit testing
+
+You can install it by using npm to your project folder:
+```
+$ npm install di4js --save
+```
+
+# How does it work?
+
+I will show you how to apply di4js on a simple NodeJS console app.
+
+Let's first create 2 objects and 1 of them needs to call another to use some functions from it
+
+object1.js
+{% highlight ruby %}
+module.exports = function () {
+    this.func1 = function(a) {
+        console.log('A is: ' + a );
+    }
+}
+
+{% endhighlight %}
+
+object2.js
+{% highlight ruby %}
+module.exports = function (object1) {
+    this.func1 = function() {
+        object1.func1('nodejs');
+    }
+}
+{% endhighlight %}
+
+At this point you can see that object1 is parameter in object2.js, but where to input that object1??? The answer 
+is simple when applying di4js. Let's create another code snippet in a different file (or put it in app.js if you 
+use Express framework).
+
+{% highlight ruby %}
+var di = require('di4js');
+var Obj1 = require('path to object1.js file');
+var Obj2 = require('path to object2.js file');
+
+// Register object1 as obj1.
+di.autowired(false).register('obj1').as(Obj1);
+// Register object2 as obj2 and pass the obj1 to parameter of obj2.
+di.autowired(false).register('obj2').as(Obj2).withConstructor().param().ref('obj1');
+{% endhighlight %}
+
+Run func1 of object2.js
+
+{% highlight ruby %}
+var di = require('di4js');
+di.resolve('obj2').func1(); // This will print 'A is nodejs'.
+{% endhighlight %}
+
+From this example, you can see that object2 doesn't have to create and rely on it as it is registered in the app.js file 
+and you can reuse the code in further development. I will not mention unit testing here, maybe I will have a post about 
+unit testing on NodeJS soon :) .
+
+For more information on di4js, please check out the document [here](https://github.com/gedbac/di4js).

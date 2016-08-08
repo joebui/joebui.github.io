@@ -1,0 +1,104 @@
+---
+layout: post
+title: Intro to NodeJS
+author: joebui
+categories: [languages]
+---
+
+> I guess you have heard of some famous programming languages used to make web application such
+> as Python, Java, Golang and Ruby. NodeJS is also among them and what is the special things about it?
+> In this post I will show you the basic concepts of NodeJS to help you understand and make it easy to
+> research further.
+
+# What is it???
+
+NodeJS is actually **Javascript** runtime, built on [V8 Javascript Engine of Google Chrome](https://developers.google.com/v8/). 
+It uses event-driven and non-blocking I/O model, which I will explain further later, and that is why NodeJS very fast. Node is 
+single-process single-threaded, DO NOT misunderstand that it is fast because it is multi-threaded.
+
+Many companies and individuals contribute to NodeJS like IBM, Microsoft, Intel and Google.
+
+# When should I use NodeJS?
+
+NodeJS is fast but it doesn't mean it needs to be applied for all types of web app. It is suitable for real-time application such as 
+chat service and game server, API and streaming. Do not use Node for web app that requires heavy computing, CPU-bound and 
+mathematically-precised, these are not its strengths.
+
+# Important concepts of NodeJS
+
+## Event-driven and non-blocking
+
+In the artchitecture of NodeJS, there is a main loop in the singled-thread called **event loop**, it listens for events and trigger a 
+callback function when one of the events is detected.
+
+Because it is non-blocking I/O, it does not have to wait for a task to finish to execute another task. Let's have a look at this code snippet
+to understand more:
+
+{% highlight ruby %}
+var fs = require("fs"); // call fs package
+
+// Read file from input.txt, assume it has 1 line "Hello world".
+fs.readFile('input.txt', function (err, data) {
+    // Return error.
+    if (err){
+        console.log(err.stack);
+        return;
+    }
+    console.log(data.toString());
+});
+
+console.log("Program Ended");
+{% endhighlight %}
+
+When executing this code for the first time, you will expect it will print content from file first then the "Program Ended" line. However, NodeJS 
+is non-blocking I/O, it doesn't have to wait for file reading to complete to execute "Progran Ended" line, the result will be
+
+Program Ended
+Hello World
+
+## Callback
+This code snippet is the callback function of the code above:
+
+{% highlight ruby %}
+function (err, data) {
+    // Return error.
+    if (err){
+        console.log(err.stack);
+        return;
+    }
+    console.log(data.toString());
+});
+{% endhighlight %}
+
+Callback function is called after the async function "readFile" finishes and returns its result in "err" and "data" parameters. 
+Not just read file but also async functions to get data from outside source like MySQL and SQLite
+
+If you want to get to know more about them, have a look at this [page](http://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm).
+
+# NPM
+
+You may know that for .NET it has a package manager called NuGet package manager or RubyGems in Ruby. NPM is like that but for NodeJS. 
+There are many packages on [npm](https://www.npmjs.com/) and anyone can create and publish their packages online for everyone to use or 
+contribute. There are 2 main ways to install a package:
+
+## Install on your system
+
+```
+npm install package-name -g
+```
+
+## Install on a specific NodeJS project
+
+```
+npm install package-name --save
+```
+
+It will be stored in the node_modules folder in the project folder.
+
+# Frameworks to go with NodeJS
+
+There are many open frameworks out there for you to choose to develop your NodeJS application such as 
+[Express](http://expressjs.com/), which is the most popular one on npm and and the latest one named 
+[FeatherJS](http://feathersjs.com/). It is up to you to choose the ideal framework for your project.
+
+** To be updated **
