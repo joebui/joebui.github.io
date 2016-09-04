@@ -17,7 +17,7 @@ categories: [news]
 -   Tooling: you are free to choose command Line compiler or First Class IDE.
 
 ## What does it look like?
-{% highlight ruby %}
+{% highlight Kotlin %}
 data class Product(val name: String, val description: String)
 
 fun main(args: Array<String>) {

@@ -19,13 +19,13 @@ You can follow this [website](http://emmet.io/download/) to install Emmet on the
 **Create nested elements by simply typing:**
 
 
-{% highlight ruby %}
+{% highlight HTML %}
 div>ul>li
 {% endhighlight %}
 
 then press Tab and you will have this result quickly:
 
-{% highlight ruby %}
+{% highlight HTML %}
 <div>
     <ul>
         <li></li>
@@ -35,13 +35,13 @@ then press Tab and you will have this result quickly:
 
 **Create an element with class name or id name with speed:**
 
-{% highlight ruby %}
+{% highlight HTML %}
 div#header+div.page+div#footer.class1.class2.class3
 {% endhighlight %}
 
 then press Tab and you will have the following result:
 
-{% highlight ruby %}
+{% highlight HTML %}
 <div id="header"></div>
 <div class="page"></div>
 <div id="footer" class="class1 class2 class3"></div>
@@ -49,13 +49,13 @@ then press Tab and you will have the following result:
 
 **Writing text for an element:**
 
-{% highlight ruby %}
+{% highlight HTML %}
 a{Click me}
 {% endhighlight %}
 
 then press Tab and you will have:
 
-{% highlight ruby %}
+{% highlight HTML %}
 <a href="">Click me</a>
 {% endhighlight %}
 
