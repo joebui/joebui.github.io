@@ -26,7 +26,7 @@ mathematically-precised, these are not its strengths.
 
 # Important concepts of NodeJS
 
-## Event-driven and non-blocking
+### Event-driven and non-blocking
 
 In the artchitecture of NodeJS, there is a main loop in the singled-thread called **event loop**, it listens for events and trigger a
 callback function when one of the events is detected.
@@ -56,7 +56,7 @@ is non-blocking I/O, it doesn't have to wait for file reading to complete to exe
 Program Ended
 Hello World
 
-## Callback
+### Callback
 This code snippet is the callback function of the code above:
 
 {% highlight Javascript %}
@@ -81,13 +81,13 @@ You may know that for .NET it has a package manager called NuGet package manager
 There are many packages on [npm](https://www.npmjs.com/) and anyone can create and publish their packages online for everyone to use or
 contribute. There are 2 main ways to install a package:
 
-## Install on your system
+### Install on your system
 
 ```
 npm install package-name -g
 ```
 
-## Install on a specific NodeJS project
+### Install on a specific NodeJS project
 
 ```
 npm install package-name --save
