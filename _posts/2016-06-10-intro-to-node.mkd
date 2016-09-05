@@ -20,16 +20,24 @@ Many companies and individuals contribute to NodeJS like IBM, Microsoft, Intel a
 
 # When should I use NodeJS?
 
-NodeJS is fast but it doesn't mean it needs to be applied for all types of web app. It is suitable for real-time application such as
-chat service and game server, API and streaming. Do not use Node for web app that requires heavy computing, CPU-bound and
-mathematically-precised, these are not its strengths.
+NodeJS is fast but it doesn't mean it needs to be applied for all types of web app. It is suitable in these areas:
+
+-   I/O bound app
+-   Data streaming
+-   Real-time app
+-   Single Page Application (SPA)
+
+It is **NOT** a great idea to use Node for web app that requires heavy computing, CPU-bound and
+mathematically-precised.
 
 # Important concepts of NodeJS
 
 ### Event-driven and non-blocking
 
 In the artchitecture of NodeJS, there is a main loop in the singled-thread called **event loop**, it listens for events and trigger a
-callback function when one of the events is detected.
+callback function when one of the events is detected. Refer the below image for better understanding.
+
+![My helpful screenshot](/img/2016-06-10-intro-to-node/architecture.jpg)
 
 Because it is non-blocking I/O, it does not have to wait for a task to finish to execute another task. Let's have a look at this code snippet
 to understand more:
@@ -84,13 +92,13 @@ contribute. There are 2 main ways to install a package:
 ### Install on your system
 
 ```
-npm install package-name -g
+$ npm install package-name -g
 ```
 
 ### Install on a specific NodeJS project
 
 ```
-npm install package-name --save
+$ npm install package-name --save
 ```
 
 It will be stored in the node_modules folder in the project folder.
@@ -98,7 +106,22 @@ It will be stored in the node_modules folder in the project folder.
 # Frameworks to go with NodeJS
 
 There are many open frameworks out there for you to choose to develop your NodeJS application such as
-[Express](http://expressjs.com/), which is the most popular one on npm and and the latest one named
+[Express](http://expressjs.com/), which is the most popular one on npm and and the new one named
 [FeatherJS](http://feathersjs.com/). It is up to you to choose the ideal framework for your project.
 
-** To be updated **
+# IDE/Text Editor for coding NodeJS
+
+You can use tradional text editor like Notepad++, Sublime, Atom if you want. But I suggest you should try this new IDE from Microsoft called [Visual Studio Code](https://code.visualstudio.com/c?utm_expid=101350005-27.GqBWbOBuSRqlazQC_nNSRg.2&utm_referrer=https%3A%2F%2Fcode.visualstudio.com%2Fc), which is easy to
+use and customize. Or if you have student account of Jetbrains or license, you can use [Webstorm](https://www.jetbrains.com/webstorm/).
+
+# Resource for learning NodeJS
+
+I found this [resource](http://www.tutorialspoint.com/nodejs/index.htm) on Tutorialspoint, which really helped me get the basic information about NodeJS.
+
+To download NodeJS, go to the official [website](https://nodejs.org/en/) or you can use [nvm](https://github.com/creationix/nvm).
+
+For ExpressJS framework, you can check out the official [website](https://expressjs.com/).
+
+If you don't want to write long SQL statements to read/write database, you may want try this ORM package for NodeJS, [Sequelize](http://docs.sequelizejs.com/en/v3/).
+
+Have fun coding ;)
