@@ -101,7 +101,16 @@ $ npm install package-name -g
 $ npm install package-name --save
 ```
 
-It will be stored in the node_modules folder in the project folder.
+It will be stored in the node_modules folder in the project folder and stated in the "package.json" file. In a NodeJS project, it is suggested that you should
+ignore the node_modules folder if you use source version control, such as git. Others can clone your project and install packages easily with this command:
+
+```
+$ npm i
+```
+
+### Checking update for packages
+
+If you want the packages to be up-to-date, you can use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) to help you check for updates.
 
 # Frameworks to go with NodeJS
 
