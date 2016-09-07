@@ -8,9 +8,7 @@
 # Site settings
 title: Dien Bui's blog
 email: dienbuijoe@outlook.com
-baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://joebui.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
 github_username:  joebui
 
 # Build settings
@@ -19,5 +17,6 @@ markdown: kramdown
 gems:
     - jekyll-paginate
     - jekyll-coffeescript
+    - jekyll-seo-tag
 
 paginate: 10

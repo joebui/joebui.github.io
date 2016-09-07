@@ -4,3 +4,4 @@ gem "jekyll"
 gem 'jekyll-paginate'
 gem 'jekyll-coffeescript'
 gem 'github-pages'
+gem 'jekyll-seo-tag'
