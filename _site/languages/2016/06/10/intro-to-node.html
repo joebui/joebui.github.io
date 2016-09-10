@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Intro to NodeJS</title>
+    <meta name="description" content="  I guess you have heard of some famous programming languages used to make web application suchas Python, Java, Golang and Ruby. NodeJS is also among them an...">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+
+  <!-- Begin Jekyll SEO tag -->
+<title>Intro to NodeJS - Dien Bui’s blog</title>
+<meta property="og:title" content="Intro to NodeJS" />
+<meta name="description" content="  I guess you have heard of some famous programming languages used to make web application suchas Python, Java, Golang and Ruby. NodeJS is also among them and what is the special things about it?In this post I will show you the basic concepts of NodeJS to help you understand and make it easy toresearch further." />
+<meta property='og:description' content="  I guess you have heard of some famous programming languages used to make web application suchas Python, Java, Golang and Ruby. NodeJS is also among them and what is the special things about it?In this post I will show you the basic concepts of NodeJS to help you understand and make it easy toresearch further." />
+<link rel="canonical" href="https://joebui.github.io/languages/2016/06/10/intro-to-node.html" />
+<meta property='og:url' content='https://joebui.github.io/languages/2016/06/10/intro-to-node.html' />
+<meta property="og:site_name" content="Dien Bui’s blog" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Dien Bui’s blog",
+      "url" : "https://joebui.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<link rel="next" href="https://joebui.github.io/tools/2016/06/11/di-for-node.html" title="di4js - A simple dependency injection package for Javascript" />
+<link rel="prev" href="https://joebui.github.io/tutorials/2016/02/19/using-oh-my-zsh.html" title="Using oh-my-zsh" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intro to NodeJS",
+      "image": null,
+      "datePublished": "2016-06-10T00:00:00+07:00",
+      "description": "  I guess you have heard of some famous programming languages used to make web application suchas Python, Java, Golang and Ruby. NodeJS is also among them and what is the special things about it?In this post I will show you the basic concepts of NodeJS to help you understand and make it easy toresearch further."
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+  <body>
+      <div class="container">
+        <div class="navbar-wrapper">
+          <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Dien Bui's blog</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <li><a href="/categories">Categories</a></li>
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="page-link" href="/about">About me</a></li>                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        </div>
+        <div class="col-md-12">
+          <div class="article">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Intro to NodeJS</h1>
+      <p class="post-meta"><time datetime="2016-06-10T00:00:00+07:00" itemprop="datePublished">Jun 10, 2016</time></p>
+      <hr>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+      <blockquote>
+  <p>I guess you have heard of some famous programming languages used to make web application such
+as Python, Java, Golang and Ruby. NodeJS is also among them and what is the special things about it?
+In this post I will show you the basic concepts of NodeJS to help you understand and make it easy to
+research further.</p>
+</blockquote>
+
+<h1 id="what-is-it">What is it???</h1>
+
+<p>NodeJS is actually <strong>Javascript</strong> runtime, built on <a href="https://developers.google.com/v8/">V8 Javascript Engine of Google Chrome</a>.
+It uses event-driven and non-blocking I/O model, which I will explain further later, and that is why NodeJS very fast. Node is
+single-process single-threaded, DO NOT misunderstand that it is fast because it is multi-threaded.</p>
+
+<p>Many companies and individuals contribute to NodeJS like IBM, Microsoft, Intel and Google.</p>
+
+<h1 id="when-should-i-use-nodejs">When should I use NodeJS?</h1>
+
+<p>NodeJS is fast but it doesn’t mean it needs to be applied for all types of web app. It is suitable in these areas:</p>
+
+<ul>
+  <li>I/O bound app</li>
+  <li>Data streaming</li>
+  <li>Real-time app</li>
+  <li>Single Page Application (SPA)</li>
+</ul>
+
+<p>It is <strong>NOT</strong> a great idea to use Node for web app that requires heavy computing, CPU-bound and
+mathematically-precised.</p>
+
+<h1 id="important-concepts-of-nodejs">Important concepts of NodeJS</h1>
+
+<h3 id="event-driven-and-non-blocking">Event-driven and non-blocking</h3>
+
+<p>In the artchitecture of NodeJS, there is a main loop in the singled-thread called <strong>event loop</strong>, it listens for events and trigger a
+callback function when one of the events is detected. Refer the below image for better understanding.</p>
+
+<p><img src="/img/2016-06-10-intro-to-node/architecture.jpg" alt="My helpful screenshot" /></p>
+
+<p>Because it is non-blocking I/O, it does not have to wait for a task to finish to execute another task. Let’s have a look at this code snippet
+to understand more:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">);</span> <span class="c1">// call fs package</span>
+
+<span class="c1">// Read file from input.txt, assume it has 1 line "Hello world".</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">'input.txt'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Return error.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Program Ended"</span><span class="p">);</span></code></pre></figure>
+
+<p>When executing this code for the first time, you will expect it will print content from file first then the “Program Ended” line. However, NodeJS
+is non-blocking I/O, it doesn’t have to wait for file reading to complete to execute “Progran Ended” line, the result will be</p>
+
+<p>Program Ended
+Hello World</p>
+
+<h3 id="callback">Callback</h3>
+<p>This code snippet is the callback function of the code above:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Return error.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>Callback function is called after the async function “readFile” finishes and returns its result in “err” and “data” parameters.
+Not just read file but also async functions to get data from outside source like MySQL and SQLite</p>
+
+<p>If you want to get to know more about them, have a look at this <a href="http://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm">page</a>.</p>
+
+<h1 id="npm">NPM</h1>
+
+<p>You may know that for .NET it has a package manager called NuGet package manager or RubyGems in Ruby. NPM is like that but for NodeJS.
+There are many packages on <a href="https://www.npmjs.com/">npm</a> and anyone can create and publish their packages online for everyone to use or
+contribute. There are 2 main ways to install a package:</p>
+
+<h3 id="install-on-your-system">Install on your system</h3>
+
+<p><code class="highlighter-rouge">
+$ npm install package-name -g
+</code></p>
+
+<h3 id="install-on-a-specific-nodejs-project">Install on a specific NodeJS project</h3>
+
+<p><code class="highlighter-rouge">
+$ npm install package-name --save
+</code></p>
+
+<p>It will be stored in the node_modules folder in the project folder and stated in the “package.json” file. In a NodeJS project, it is suggested that you should
+ignore the node_modules folder if you use source version control, such as git. Others can clone your project and install packages easily with this command:</p>
+
+<p><code class="highlighter-rouge">
+$ npm i
+</code></p>
+
+<h3 id="checking-update-for-packages">Checking update for packages</h3>
+
+<p>If you want the packages to be up-to-date, you can use <a href="https://www.npmjs.com/package/npm-check-updates">npm-check-updates</a> to help you check for updates.</p>
+
+<h1 id="frameworks-to-go-with-nodejs">Frameworks to go with NodeJS</h1>
+
+<p>There are many open frameworks out there for you to choose to develop your NodeJS application such as
+<a href="http://expressjs.com/">Express</a>, which is the most popular one on npm and and the new one named
+<a href="http://feathersjs.com/">FeatherJS</a>. It is up to you to choose the ideal framework for your project.</p>
+
+<h1 id="idetext-editor-for-coding-nodejs">IDE/Text Editor for coding NodeJS</h1>
+
+<p>You can use tradional text editor like Notepad++, Sublime, Atom if you want. But I suggest you should try this new IDE from Microsoft called <a href="https://code.visualstudio.com/c?utm_expid=101350005-27.GqBWbOBuSRqlazQC_nNSRg.2&amp;utm_referrer=https%3A%2F%2Fcode.visualstudio.com%2Fc">Visual Studio Code</a>, which is easy to
+use and customize. Or if you have student account of Jetbrains or license, you can use <a href="https://www.jetbrains.com/webstorm/">Webstorm</a>.</p>
+
+<h1 id="resource-for-learning-nodejs">Resource for learning NodeJS</h1>
+
+<p>I found this <a href="http://www.tutorialspoint.com/nodejs/index.htm">resource</a> on Tutorialspoint, which really helped me get the basic information about NodeJS.</p>
+
+<p>To download NodeJS, go to the official <a href="https://nodejs.org/en/">website</a> or you can use <a href="https://github.com/creationix/nvm">nvm</a>.</p>
+
+<p>For ExpressJS framework, you can check out the official <a href="https://expressjs.com/">website</a>.</p>
+
+<p>If you don’t want to write long SQL statements to read/write database, you may want try this ORM package for NodeJS, <a href="http://docs.sequelizejs.com/en/v3/">Sequelize</a>.</p>
+
+<p>Have fun coding ;)</p>
+
+    </div>
+
+  </article>
+</div>
+<br>
+
+        </div>
+      </div>
+
+      <footer class="footer">
+    <div class="container">
+        <p>&copy Dien Bui's geeky blog - 2016 with support from <a href="http://jekyllrb.com/">Jekyll</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p>
+    </div>
+</footer>
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+</html>

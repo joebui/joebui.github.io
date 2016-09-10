@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dien Bui&#39;s blog</title>
+    <description></description>
+    <link>https://joebui.github.io/</link>
+    <atom:link href="https://joebui.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 10 Sep 2016 15:09:00 +0700</pubDate>
+    <lastBuildDate>Sat, 10 Sep 2016 15:09:00 +0700</lastBuildDate>
+    <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>Open Terminal from Finder (macOS)</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;If you have used macOS, you may notice that in Finder you cannot open a directory in the Terminal immediately. Instead, you
+need to open Terminal and use “cd” to get to the directory you want. So, in this post I will show you how to enable that feature
+in Finder within few seconds.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;open-system-preference-and-go-to-keyboard&quot;&gt;Open System Preference and go to Keyboard&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2016-09-10-enable-terminal-macos/step1.png&quot; alt=&quot;Keyboard&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;go-to-services-and-find-new-terminal-at-folder-and-new-terminal-tab-at-folder-lines-and-check-them&quot;&gt;Go to Services and find “New Terminal at Folder” and “New Terminal Tab at Folder” lines and check them&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2016-09-10-enable-terminal-macos/step2.png&quot; alt=&quot;Service&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;turn-off-system-preference-open-finder-and-direct-to-a-folder-you-wish-to-open-in-terminal-right-click--services--new-terminal-at-folder&quot;&gt;Turn off System Preference, open Finder and direct to a folder you wish to open in Terminal, right click &amp;gt; Services &amp;gt; New Terminal at Folder&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2016-09-10-enable-terminal-macos/step3.png&quot; alt=&quot;Finder&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;now-the-terminal-is-opened-and-it-already-directed-you-to-that-folder&quot;&gt;Now the Terminal is opened and it already directed you to that folder&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/img/2016-09-10-enable-terminal-macos/step4.png&quot; alt=&quot;Terminal&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 10 Sep 2016 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/tutorials/2016/09/10/enable-terminal-macos.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/tutorials/2016/09/10/enable-terminal-macos.html</guid>
+        
+        
+        <category>tutorials</category>
+        
+      </item>
+    
+      <item>
+        <title>di4js - A simple dependency injection package for Javascript</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;If you have worked with ASP.NET MVC before, you may know that there is a package called
+Autofac that help you apply Dependency Injection (DI) to your project. There are many packages
+for NodeJS on npm and I found out one that is very easy-to-understand and easy-to-apply: di4js.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;what-is-di&quot;&gt;What is DI???&lt;/h1&gt;
+
+&lt;p&gt;DI is the implementation of Inversion of Control (IoC). IoC means that objects don’t create other objects
+on which they rely on to perform some tasks. The benefits of using DI are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reduce class coupling&lt;/li&gt;
+  &lt;li&gt;Increase code reusing&lt;/li&gt;
+  &lt;li&gt;Increase code maintenance&lt;/li&gt;
+  &lt;li&gt;Easy to apply unit testing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can install it by using npm to your project folder:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ npm install di4js --save
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h1&gt;
+
+&lt;p&gt;I will show you how to apply di4js on a simple NodeJS console app.&lt;/p&gt;
+
+&lt;p&gt;Let’s first create 2 objects and 1 of them needs to call another to use some functions from it&lt;/p&gt;
+
+&lt;p&gt;object1.js&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;func1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;A is: &#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;object2.js&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;object1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;func1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;object1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;func1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;nodejs&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;At this point you can see that object1 is parameter in object2.js, but where to input that object1??? The answer
+is simple when applying di4js. Let’s create another code snippet in a different file (or put it in app.js if you
+use Express framework).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;di&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;di4js&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Obj1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path to object1.js file&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path to object2.js file&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Register object1 as obj1.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;di&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;autowired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;obj1&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Obj1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Register object2 as obj2 and pass the obj1 to parameter of obj2.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;di&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;autowired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;obj2&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Obj2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;withConstructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;obj1&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Run func1 of object2.js&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;di&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;di4js&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;di&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;obj2&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;func1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// This will print &#39;A is nodejs&#39;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;From this example, you can see that object2 doesn’t have to create and rely on it as it is registered in the app.js file
+and you can reuse the code in further development. I will not mention unit testing here, maybe I will have a post about
+unit testing on NodeJS soon :) .&lt;/p&gt;
+
+&lt;p&gt;For more information on di4js, please check out the document &lt;a href=&quot;https://github.com/gedbac/di4js&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 11 Jun 2016 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/tools/2016/06/11/di-for-node.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/tools/2016/06/11/di-for-node.html</guid>
+        
+        
+        <category>tools</category>
+        
+      </item>
+    
+      <item>
+        <title>Intro to NodeJS</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;I guess you have heard of some famous programming languages used to make web application such
+as Python, Java, Golang and Ruby. NodeJS is also among them and what is the special things about it?
+In this post I will show you the basic concepts of NodeJS to help you understand and make it easy to
+research further.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;what-is-it&quot;&gt;What is it???&lt;/h1&gt;
+
+&lt;p&gt;NodeJS is actually &lt;strong&gt;Javascript&lt;/strong&gt; runtime, built on &lt;a href=&quot;https://developers.google.com/v8/&quot;&gt;V8 Javascript Engine of Google Chrome&lt;/a&gt;.
+It uses event-driven and non-blocking I/O model, which I will explain further later, and that is why NodeJS very fast. Node is
+single-process single-threaded, DO NOT misunderstand that it is fast because it is multi-threaded.&lt;/p&gt;
+
+&lt;p&gt;Many companies and individuals contribute to NodeJS like IBM, Microsoft, Intel and Google.&lt;/p&gt;
+
+&lt;h1 id=&quot;when-should-i-use-nodejs&quot;&gt;When should I use NodeJS?&lt;/h1&gt;
+
+&lt;p&gt;NodeJS is fast but it doesn’t mean it needs to be applied for all types of web app. It is suitable in these areas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I/O bound app&lt;/li&gt;
+  &lt;li&gt;Data streaming&lt;/li&gt;
+  &lt;li&gt;Real-time app&lt;/li&gt;
+  &lt;li&gt;Single Page Application (SPA)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is &lt;strong&gt;NOT&lt;/strong&gt; a great idea to use Node for web app that requires heavy computing, CPU-bound and
+mathematically-precised.&lt;/p&gt;
+
+&lt;h1 id=&quot;important-concepts-of-nodejs&quot;&gt;Important concepts of NodeJS&lt;/h1&gt;
+
+&lt;h3 id=&quot;event-driven-and-non-blocking&quot;&gt;Event-driven and non-blocking&lt;/h3&gt;
+
+&lt;p&gt;In the artchitecture of NodeJS, there is a main loop in the singled-thread called &lt;strong&gt;event loop&lt;/strong&gt;, it listens for events and trigger a
+callback function when one of the events is detected. Refer the below image for better understanding.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2016-06-10-intro-to-node/architecture.jpg&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Because it is non-blocking I/O, it does not have to wait for a task to finish to execute another task. Let’s have a look at this code snippet
+to understand more:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// call fs package&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Read file from input.txt, assume it has 1 line &quot;Hello world&quot;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;input.txt&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Return error.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Program Ended&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;When executing this code for the first time, you will expect it will print content from file first then the “Program Ended” line. However, NodeJS
+is non-blocking I/O, it doesn’t have to wait for file reading to complete to execute “Progran Ended” line, the result will be&lt;/p&gt;
+
+&lt;p&gt;Program Ended
+Hello World&lt;/p&gt;
+
+&lt;h3 id=&quot;callback&quot;&gt;Callback&lt;/h3&gt;
+&lt;p&gt;This code snippet is the callback function of the code above:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Return error.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Callback function is called after the async function “readFile” finishes and returns its result in “err” and “data” parameters.
+Not just read file but also async functions to get data from outside source like MySQL and SQLite&lt;/p&gt;
+
+&lt;p&gt;If you want to get to know more about them, have a look at this &lt;a href=&quot;http://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm&quot;&gt;page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;npm&quot;&gt;NPM&lt;/h1&gt;
+
+&lt;p&gt;You may know that for .NET it has a package manager called NuGet package manager or RubyGems in Ruby. NPM is like that but for NodeJS.
+There are many packages on &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt; and anyone can create and publish their packages online for everyone to use or
+contribute. There are 2 main ways to install a package:&lt;/p&gt;
+
+&lt;h3 id=&quot;install-on-your-system&quot;&gt;Install on your system&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ npm install package-name -g
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;install-on-a-specific-nodejs-project&quot;&gt;Install on a specific NodeJS project&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ npm install package-name --save
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It will be stored in the node_modules folder in the project folder and stated in the “package.json” file. In a NodeJS project, it is suggested that you should
+ignore the node_modules folder if you use source version control, such as git. Others can clone your project and install packages easily with this command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ npm i
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;checking-update-for-packages&quot;&gt;Checking update for packages&lt;/h3&gt;
+
+&lt;p&gt;If you want the packages to be up-to-date, you can use &lt;a href=&quot;https://www.npmjs.com/package/npm-check-updates&quot;&gt;npm-check-updates&lt;/a&gt; to help you check for updates.&lt;/p&gt;
+
+&lt;h1 id=&quot;frameworks-to-go-with-nodejs&quot;&gt;Frameworks to go with NodeJS&lt;/h1&gt;
+
+&lt;p&gt;There are many open frameworks out there for you to choose to develop your NodeJS application such as
+&lt;a href=&quot;http://expressjs.com/&quot;&gt;Express&lt;/a&gt;, which is the most popular one on npm and and the new one named
+&lt;a href=&quot;http://feathersjs.com/&quot;&gt;FeatherJS&lt;/a&gt;. It is up to you to choose the ideal framework for your project.&lt;/p&gt;
+
+&lt;h1 id=&quot;idetext-editor-for-coding-nodejs&quot;&gt;IDE/Text Editor for coding NodeJS&lt;/h1&gt;
+
+&lt;p&gt;You can use tradional text editor like Notepad++, Sublime, Atom if you want. But I suggest you should try this new IDE from Microsoft called &lt;a href=&quot;https://code.visualstudio.com/c?utm_expid=101350005-27.GqBWbOBuSRqlazQC_nNSRg.2&amp;amp;utm_referrer=https%3A%2F%2Fcode.visualstudio.com%2Fc&quot;&gt;Visual Studio Code&lt;/a&gt;, which is easy to
+use and customize. Or if you have student account of Jetbrains or license, you can use &lt;a href=&quot;https://www.jetbrains.com/webstorm/&quot;&gt;Webstorm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;resource-for-learning-nodejs&quot;&gt;Resource for learning NodeJS&lt;/h1&gt;
+
+&lt;p&gt;I found this &lt;a href=&quot;http://www.tutorialspoint.com/nodejs/index.htm&quot;&gt;resource&lt;/a&gt; on Tutorialspoint, which really helped me get the basic information about NodeJS.&lt;/p&gt;
+
+&lt;p&gt;To download NodeJS, go to the official &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;website&lt;/a&gt; or you can use &lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;nvm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For ExpressJS framework, you can check out the official &lt;a href=&quot;https://expressjs.com/&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you don’t want to write long SQL statements to read/write database, you may want try this ORM package for NodeJS, &lt;a href=&quot;http://docs.sequelizejs.com/en/v3/&quot;&gt;Sequelize&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Have fun coding ;)&lt;/p&gt;
+</description>
+        <pubDate>Fri, 10 Jun 2016 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/languages/2016/06/10/intro-to-node.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/languages/2016/06/10/intro-to-node.html</guid>
+        
+        
+        <category>languages</category>
+        
+      </item>
+    
+      <item>
+        <title>Using oh-my-zsh</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Oh-my-zsh is an open source, community-driven framework for managing zsh and it is FREE. It has
+more than 180 optional plugin (rails, git, …) and more than 120 theme for your Terminal
+and an auto-update tool to keep oh-my-zsh up-to-date.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this tutorial, I will guide you to install it on your PC/laptop. The great thing about this is
+that you can customize your Terminal, add plugins. Unlike the bashrc, which does not look attractive
+and can make it difficult for you to use when working on large IT projects.&lt;/p&gt;
+
+&lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linux or Mac OSX because Oh-my-zsh works best on Unix-based OS&lt;/li&gt;
+  &lt;li&gt;zsh must be pre-installed. In Mac OSX, it is already pre-installed. On Linux, you will need to type command in the Terminal to install:&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;curl&lt;/strong&gt; or &lt;strong&gt;wget&lt;/strong&gt; must be installed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For &lt;strong&gt;Debian/Ubuntu&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ sudo apt-get install zsh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For &lt;strong&gt;Fedora&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ sudo yum install zsh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;install-oh-my-zsh&quot;&gt;Install oh-my-zsh&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;via &lt;strong&gt;curl&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;via &lt;strong&gt;wget&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;change-default-shell&quot;&gt;Change default shell&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ chsh -s /bin/zsh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For some OS, you may need to restart your computer for this to take effect.&lt;/p&gt;
+
+&lt;h2 id=&quot;change-terminal-theme&quot;&gt;Change Terminal theme&lt;/h2&gt;
+
+&lt;p&gt;Now you have successfully installed oh-my-zsh. You will need to change the theme that is suitable for you,
+instead of using the default one. To change it, you will need to modify the &lt;strong&gt;.zshrc&lt;/strong&gt; file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ cd
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ vim .zshrc
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In this tutorial, I use vim text editor, you can use other text editor if you like. Next, locate this line in
+the file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ZSH_THEME=&quot;robbyrussell&quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Change the name “robbyrussell” to another name of another theme. You can have a look of all the available themes
+on this &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh/wiki/Themes&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally, just restart the Terminal and you will see the difference.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-plugins&quot;&gt;Add plugins&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;strong&gt;.zshrc&lt;/strong&gt; file, you need edit the line starting with “plugins” word:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+plugins=(git bundler osx rake ruby)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can add more or remove plugins if you like. To use the plugins, most of them have README file, which documents how
+to use them.&lt;/p&gt;
+
+&lt;h2 id=&quot;updating-oh-my-zsh&quot;&gt;Updating oh-my-zsh&lt;/h2&gt;
+
+&lt;p&gt;It will update automatically, but if you want to do so manually just simply type this command in Terminal:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+$ upgrade_oh_my_zsh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For more information about oh-my-zsh, you can have a look at this &lt;a href=&quot;http://ohmyz.sh/&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 19 Feb 2016 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/tutorials/2016/02/19/using-oh-my-zsh.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/tutorials/2016/02/19/using-oh-my-zsh.html</guid>
+        
+        
+        <category>tutorials</category>
+        
+      </item>
+    
+      <item>
+        <title>Boost your WiFi signal</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Have you ever been experienced slow WiFi at your home? Do you want to boost your WiFi signal without
+spending a lot more money? Don’t worry, there is one way to boost the signal by using BEER CAN. I’ve found
+a YouTube video showing you how to do so. Enjoy faster WiFi signal!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=tonZeKP-Mi4&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/tonZeKP-Mi4/0.jpg&quot; alt=&quot;Beer Can WiFi Booster!&quot; title=&quot;A Cleveland Heist motorcycle on the roads of Israel&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 17 Feb 2016 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/tutorials/2016/02/17/boost-wifi-signal.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/tutorials/2016/02/17/boost-wifi-signal.html</guid>
+        
+        
+        <category>tutorials</category>
+        
+      </item>
+    
+      <item>
+        <title>Kotlin - A new programming language for JVM, Android and browser</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Have you ever used Java? If yes then you can see that Java’s syntax is more complicated and longer than other
+language such as C#, Python, Ruby,… Also, when writing app for Android, you will need to use Java and it will
+take a lot of time for you to complete the code. But, with Kotlin creating app for Android can become faster.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;advantages-of-using-kotlin&quot;&gt;Advantages of using Kotlin&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Concise: reduce the amount of code you need to write&lt;/li&gt;
+  &lt;li&gt;Safe: avoid entire classes of errors such as null pointer exception&lt;/li&gt;
+  &lt;li&gt;Versatile: build server-side application, Android apps or web’s front-end&lt;/li&gt;
+  &lt;li&gt;Interoperable: 100% Java interoperability&lt;/li&gt;
+  &lt;li&gt;Tooling: you are free to choose command Line compiler or First Class IDE.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-does-it-look-like&quot;&gt;What does it look like?&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-kotlin&quot; data-lang=&quot;kotlin&quot;&gt;data class Product(val name: String, val description: String)
+
+fun main(args: Array&amp;lt;String&amp;gt;) {
+    val product = Product(&quot;kotlin&quot;, &quot;new language&quot;)
+    println(product)
+    println(&quot;Hello Kotlin&quot;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As you can see, the code is significantly shorter in comparison to Java&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-try-kotlin&quot;&gt;How to try Kotlin?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Download the standalone compiler &lt;a href=&quot;https://kotlinlang.org/docs/tutorials/command-line.html&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Try it with &lt;a href=&quot;https://kotlinlang.org/docs/tutorials/getting-started.html&quot;&gt;IntelliJ&lt;/a&gt; or &lt;a href=&quot;https://kotlinlang.org/docs/tutorials/getting-started-eclipse.html&quot;&gt;Eclipse&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;or you can try it online &lt;a href=&quot;http://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;more-information&quot;&gt;More information&lt;/h2&gt;
+&lt;p&gt;You can visit this &lt;a href=&quot;kotlinlang.org&quot;&gt;website&lt;/a&gt; for more information on Kotlin and how to use it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING: Kotlin is still in beta version and may not be stable. I suggest you should use it for testing or trying purpose only, not for real project&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 Nov 2015 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/news/2015/11/27/kotlin.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/news/2015/11/27/kotlin.html</guid>
+        
+        
+        <category>news</category>
+        
+      </item>
+    
+      <item>
+        <title>Using Jetbrains products for free</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Have you ever used or heard of the software from Jetbrains?
+If yes then you can notice that there are some great products that
+you have to pay to get full version or buy a whole product such as IntelliJ Ultimate
+or ReSharper plugin. Fortunately, with your student email you can register for a Jetbrains
+student account that allows you to use the products for free in 1 YEAR.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Follow this &lt;a href=&quot;https://www.jetbrains.com/student/&quot;&gt;link&lt;/a&gt;, scroll down and link “Apply now” and follow the instruction
+to register. These are the products you can use for free with this account: &lt;strong&gt;IntelliJ IDEA Ultimate, PyCharm Professional,
+RubyMine, PhpStorm, WebStorm, AppCode, CLion, ReSharper, dotTrace, dotCover, dotMemory and ReSharper C++&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;After downloading and installing the product(s), you need to login with your Jetbrains student account to activate the license. Enjoy!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 19 Oct 2015 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/news/2015/10/19/jetbrains-account.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/news/2015/10/19/jetbrains-account.html</guid>
+        
+        
+        <category>news</category>
+        
+      </item>
+    
+      <item>
+        <title>Emmet - the essential toolkit for web developers</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Have you ever spent lots of time writing HTML/CSS code line-by-line on
+a text editor, even though some text editors give you suggestions and have auto-complete
+functions. Do not worry as with Emmet, you can greatly improve the speed of HTML/CSS workflow.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;installing-emmet-on-text-editors&quot;&gt;Installing Emmet on text editors&lt;/h2&gt;
+&lt;p&gt;Emmet is a plugins for many text editors, this includes the popular Sublime Text and Atom. There
+are more text editors out there that Emmet supports such as Notepad++ and even Adobe Dreamweaver.&lt;/p&gt;
+
+&lt;p&gt;You can follow this &lt;a href=&quot;http://emmet.io/download/&quot;&gt;website&lt;/a&gt; to install Emmet on the text editor you use.&lt;/p&gt;
+
+&lt;h2 id=&quot;basic-magic-of-emmet&quot;&gt;Basic “magic” of Emmet&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Create nested elements by simply typing:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;div&amp;gt;ul&amp;gt;li&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;then press Tab and you will have this result quickly:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Create an element with class name or id name with speed:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;div#header+div.page+div#footer.class1.class2.class3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;then press Tab and you will have the following result:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;footer&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;class1 class2 class3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Writing text for an element:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;a{Click me}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;then press Tab and you will have:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Click me&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;There are a lot more syntax shortcuts of Emmet. You can discover more “magic” in this
+&lt;a href=&quot;http://docs.emmet.io/&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 22 Jul 2015 00:00:00 +0700</pubDate>
+        <link>https://joebui.github.io/news/2015/07/22/emmet.html</link>
+        <guid isPermaLink="true">https://joebui.github.io/news/2015/07/22/emmet.html</guid>
+        
+        
+        <category>news</category>
+        
+      </item>
+    
+  </channel>
+</rss>
