@@ -1,0 +1,22 @@
+---
+layout: post
+title: Open Terminal from Finder (macOS)
+author: joebui
+categories: [tutorials]
+---
+
+> If you have used macOS, you may notice that in Finder you cannot open a directory in the Terminal immediately. Instead, you
+> need to open Terminal and use "cd" to get to the directory you want. So, in this post I will show you how to enable that feature
+> in Finder within few seconds.
+
+#### Open System Preference and go to Keyboard
+![Keyboard](/img/2016-09-10-enable-terminal-macos/step1.png)
+
+#### Go to Services and find "New Terminal at Folder" and "New Terminal Tab at Folder" lines and check them
+![Service](/img/2016-09-10-enable-terminal-macos/step2.png)
+
+#### Turn off System Preference, open Finder and direct to a folder you wish to open in Terminal, right click > Services > New Terminal at Folder
+![Finder](/img/2016-09-10-enable-terminal-macos/step3.png)
+
+#### Now the Terminal is opened and it already directed you to that folder
+![Terminal](/img/2016-09-10-enable-terminal-macos/step4.png)
