@@ -40,7 +40,7 @@ Open the VirtualBox, click on **New** icon and follow these steps:
 ![Keyboard](/img/2016-09-17-install-ubuntu/img1.PNG)
 
 -   Press **Choose Disk** and choose the iso image you downloaded
--   Press **OK** and then press Start icon to run the machine
+-   Press **OK** and then press **Start** icon to run the machine
 -   Wait for the OS to start and click **Install Ubuntu**
 -   Check all the checkboxes and press **Continue**
 -   Press **Install Now** and then **Continue**
