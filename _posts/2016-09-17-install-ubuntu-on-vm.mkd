@@ -17,35 +17,35 @@ You need the iso file containing the OS in order to install it. You can get it f
 
 ## Create new virtual machine
 
-Before installing, make your that you configure your BIOS properly so that your machine allows Virtualization.
+Before installing, make your that you configure your **BIOS** properly so that your machine allows **virtualization**
 
-Open the VirtualBox, click on New icon and follow these steps:
+Open the VirtualBox, click on **New** icon and follow these steps:
 
 -   Type in the name for this VM (E.g. Ubuntu)
 -   Ensure the Type is Linux and Version is Ubuntu (64-bit)
--   Press Next
--   Allocate memory for your VM: I suggest that you should allocate at least 2 GB (2048 MB) RAM for your machine
--   Press Next
--   Press Create
--   Press Next
--   Press Next
--   Allocate the size for your OS: I suggest that you should allocate at least 10GB.
--   Press Create
+-   Press **Next**
+-   Allocate memory for your VM: I suggest that you should allocate at least **2 GB (2048 MB) RAM** for your machine
+-   Press **Next**
+-   Press **Create**
+-   Press **Next**
+-   Press **Next**
+-   Allocate the size for your OS: I suggest that you should allocate at least **10GB**
+-   Press **Create**
 
 ## Begin installation
 
--   Click on the machine you just created on the main window, press Settings, go to Storage
--   In Controller: IDE in Storage Tree, press the indicated icon in below image
+-   Click on the machine you just created on the main window, press **Settings**, go to **Storage**
+-   In Controller: IDE in Storage Tree, press the **indicated icon** in below image
 
 ![Keyboard](/img/2016-09-17-install-ubuntu/img1.PNG)
 
--   Press Choose Disk and choose the iso image you downloaded
--   Press OK and then press Start icon to run the machine
--   Wait for the OS to start and click "Install Ubuntu"
--   Check all the checkboxes and press Continue
--   Press Install Now and then Continue
+-   Press **Choose Disk** and choose the iso image you downloaded
+-   Press **OK** and then press Start icon to run the machine
+-   Wait for the OS to start and click **Install Ubuntu**
+-   Check all the checkboxes and press **Continue**
+-   Press **Install Now** and then **Continue**
 -   Type Location, choose Languages
 -   Type your information and then set password
--   Press Continue and wait for the download to complete. Then you restart the OS.
+-   Press **Continue** and wait for the download to complete. Then you restart the OS.
 
 ## Enjoy your Ubuntu ;)
