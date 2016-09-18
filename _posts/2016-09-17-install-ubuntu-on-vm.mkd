@@ -13,7 +13,9 @@ Go to this [website](https://www.virtualbox.org/wiki/Downloads) to download and 
 
 ## Get Ubuntu iso file
 
-You need the iso file containing the OS in order to install it. You can get it from [here](http://www.ubuntu.com/download/desktop).
+You need the iso file containing the OS in order to install it. I suggest you to use Xubuntu instead of Ubuntu because Xubuntu uses the
+light-weight UI (Xfce), unlike Ubuntu which uses a heavy UI (Unity). Go to this [website](http://cdimage.ubuntu.com/xubuntu/releases/16.04/release/)
+and download the file named **xubuntu-16.04.1-desktop-amd64.iso**
 
 ## Create new virtual machine
 
