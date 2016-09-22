@@ -15,7 +15,9 @@ Go to this [website](https://www.virtualbox.org/wiki/Downloads) to download and 
 
 You need the iso file containing the OS in order to install it. I suggest you to use Xubuntu instead of Ubuntu because Xubuntu uses the
 light-weight UI (Xfce), unlike Ubuntu which uses a heavy UI (Unity). Go to this [website](http://cdimage.ubuntu.com/xubuntu/releases/16.04/release/)
-and download the file named **xubuntu-16.04.1-desktop-amd64.iso**
+and download the file named **xubuntu-16.04.1-desktop-amd64.iso**.
+
+Depends on the CPU of the machine, some can only run 32-bit virtualization, therefore you need to download **xubuntu-16.04.1-desktop-i386.iso** file instead.
 
 ## Create new virtual machine
 
@@ -24,7 +26,7 @@ Before installing, make your that you configure your **BIOS** properly so that y
 Open the VirtualBox, click on **New** icon and follow these steps:
 
 -   Type in the name for this VM (E.g. Ubuntu)
--   Ensure the Type is Linux and Version is Ubuntu (64-bit)
+-   Ensure the Type is Linux and Version is Ubuntu (64-bit) or Ubuntu (32-bit).
 -   Press **Next**
 -   Allocate memory for your VM: I suggest that you should allocate at least **2 GB (2048 MB) RAM** for your machine
 -   Press **Next**
@@ -41,7 +43,7 @@ Open the VirtualBox, click on **New** icon and follow these steps:
 
 ![Keyboard](/img/2016-09-17-install-ubuntu/img1.PNG)
 
--   Press **Choose Disk** and choose the iso image you downloaded
+-   Press **Choose Disk** and choose the iso file you downloaded
 -   Press **OK** and then press **Start** icon to run the machine
 -   Wait for the OS to start and click **Install Ubuntu**
 -   Check all the checkboxes and press **Continue**
