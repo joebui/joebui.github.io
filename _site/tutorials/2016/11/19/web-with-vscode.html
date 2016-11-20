@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Getting Visual Studio Code ready for web development with NodeJS</title>
+    <meta name="description" content="  In this post I will show you how to prepare your Visual Studio Code (VS Code) IDE for web development with NodeJS. Which extensions should you install? How...">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+
+  <!-- Begin Jekyll SEO tag -->
+<title>Getting Visual Studio Code ready for web development with NodeJS - Dien Bui’s blog</title>
+<meta property="og:title" content="Getting Visual Studio Code ready for web development with NodeJS" />
+<meta name="description" content="  In this post I will show you how to prepare your Visual Studio Code (VS Code) IDE for web development with NodeJS. Which extensions should you install? How to debug yourNodeJS application with VS Code? And how to configure the IntelliSense to help you code faster?" />
+<meta property='og:description' content="  In this post I will show you how to prepare your Visual Studio Code (VS Code) IDE for web development with NodeJS. Which extensions should you install? How to debug yourNodeJS application with VS Code? And how to configure the IntelliSense to help you code faster?" />
+<link rel="canonical" href="https://joebui.github.io/tutorials/2016/11/19/web-with-vscode.html" />
+<meta property='og:url' content='https://joebui.github.io/tutorials/2016/11/19/web-with-vscode.html' />
+<meta property="og:site_name" content="Dien Bui’s blog" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Dien Bui’s blog",
+      "url" : "https://joebui.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<link rel="prev" href="https://joebui.github.io/tutorials/2016/09/17/install-ubuntu-on-vm.html" title="Install Ubuntu on a virtual machine" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Getting Visual Studio Code ready for web development with NodeJS",
+      "image": null,
+      "datePublished": "2016-11-19T00:00:00+07:00",
+      "description": "  In this post I will show you how to prepare your Visual Studio Code (VS Code) IDE for web development with NodeJS. Which extensions should you install? How to debug yourNodeJS application with VS Code? And how to configure the IntelliSense to help you code faster?"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+  <body>
+      <div class="container">
+        <div class="navbar-wrapper">
+          <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Dien Bui's blog</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <li><a href="/categories">Categories</a></li>
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="page-link" href="/about">About me</a></li>                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        </div>
+        <div class="col-md-12">
+          <div class="article">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Getting Visual Studio Code ready for web development with NodeJS</h1>
+      <p class="post-meta"><time datetime="2016-11-19T00:00:00+07:00" itemprop="datePublished">Nov 19, 2016</time></p>
+      <hr>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+      <blockquote>
+  <p>In this post I will show you how to prepare your Visual Studio Code (VS Code) IDE for web development with NodeJS. Which extensions should you install? How to debug your
+NodeJS application with VS Code? And how to configure the IntelliSense to help you code faster?</p>
+</blockquote>
+
+<h2 id="a-little-bit-about-vs-code">A little bit about VS code</h2>
+
+<p>I assume you have heard of <a href="https://code.visualstudio.com/">this IDE</a> from Microsoft. So what’s special about it? First of all, it is free, open-source, cross-platform and you can run on Microsoft Windows, Linux and macOS. You can customize it the way you like including file icons, theme and extensions. It supports many programming languages such as PHP, Javascript, C#, Python, Golang,… and it even has an extension from Microsoft to help you write a Dockerfile to containerize your app on <a href="https://www.docker.com/">Docker</a>. AND it has a Git commands built-in to help you view diffs, commit, revert, push and pull too.</p>
+
+<h2 id="extensions-you-should-install-in-advance">Extensions you should install in advance</h2>
+
+<h4 id="front-end">Front-end</h4>
+
+<ul>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=mkaufman.HTMLHint">HTMLHint</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion">HTML CSS Class completion</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets">HTML Snipper</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate">HTML Boilerplate</a></li>
+  <li>Emmet: don’t worry as VS Code supports Emmet by default. You can check out my <a href="https://joebui.github.io/news/2015/07/22/emmet.html">post</a> about Emmet for more info</li>
+  <li>If you want to create a single-page application, you can try <a href="https://marketplace.visualstudio.com/items?itemName=alexandersage.angular1-code-snippets">Angular 1.x Code Snippet</a> for Angular or <a href="https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets">Reactjs code snippet</a> for ReactJS</li>
+</ul>
+
+<h4 id="back-end">Back-end</h4>
+
+<ul>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint">JSHint</a></li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets">ES6 code snippet</a> - if you code NodeJS using ES6</li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">CodeRunner</a> - if you want to run a code snippet in your code for testing with speed</li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker">Docker support</a> - if you want to write Dockerfile for your app</li>
+</ul>
+
+<h2 id="setting-up-project-structure">Setting up project structure</h2>
+
+<ul>
+  <li>Enable ESLint for your workspace: type Ctrl (or Cmd for Mac) + Shift + P and create .eslintrc.json file and configure the file to match with your project’s properties</li>
+</ul>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img1.png" alt="eslintrc" /></p>
+
+<ul>
+  <li>Create jsconfig.json file</li>
+</ul>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img2.png" alt="jsconfig" /></p>
+
+<h2 id="typings">Typings</h2>
+
+<ul>
+  <li>Use <strong>typings</strong> to help improve IntelliSense for a package you will use for your project. Type this command to install:</li>
+</ul>
+
+<p><code class="highlighter-rouge">
+$ npm i typings -g
+</code></p>
+
+<ul>
+  <li>Go to your project folder and type this command to search for the package: I will take express as an example</li>
+</ul>
+
+<p><code class="highlighter-rouge">
+$ typings search express
+</code></p>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img3.png" alt="typing-search" /></p>
+
+<ul>
+  <li>There are many results, for me I would choose the express with source from npm in this tutorials. Type this command to install:</li>
+</ul>
+
+<p><code class="highlighter-rouge">
+$ typings install npm~express --save
+</code></p>
+
+<ul>
+  <li>Now you can begin creating the index.js file to run your app and HTML files. After that your project structure will look similar to this picture.
+“typings” folder and typings.json are generated by “typings”.</li>
+</ul>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img4.png" alt="structure" /></p>
+
+<ul>
+  <li>I will go to the index.js file and you will see the IntelliSense</li>
+</ul>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img5.png" alt="vscode" /></p>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img6.png" alt="vscode" /></p>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img7.png" alt="vscode" /></p>
+
+<p><img src="/img/2016-11-19-web-with-vscode/img8.png" alt="vscode" /></p>
+
+<h2 id="front-end-1">Front-end</h2>
+
+<p>I have talked about the IntelliSense of the Javascript. So how about the HTML files. It is quite simple to apply, you can follow the instruction on the website of the extensions I just showed and you will know how to use it.</p>
+
+<p>Happy coding ;)</p>
+
+    </div>
+
+  </article>
+</div>
+<br>
+
+        </div>
+      </div>
+
+      <footer class="footer">
+    <div class="container">
+        <p>&copy Dien Bui's geeky blog - 2016 with support from <a href="http://jekyllrb.com/">Jekyll</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a></p>
+    </div>
+</footer>
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+</html>
