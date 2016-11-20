@@ -82,4 +82,15 @@ $ typings install npm~express --save
 
 I have talked about the IntelliSense of the Javascript. So how about the HTML files. It is quite simple to apply, you can follow the instruction on the website of the extensions I just showed and you will know how to use it.
 
+## Debugging
+
+-   Click on the Debug icon on the left pane of the IDE
+-   Click on the Configure icon on top and select Node.js as environment
+-   launch.json file will be created
+-   Edit the "program" part in order to point to the start file of the app
+-   Press Start button in Debug tab to begin running and debugging the app
+-   Set breakpoint at the line of code that you want to debug
+
+![debug](/img/2016-11-19-web-with-vscode/img9.png)
+
 Happy coding ;)
