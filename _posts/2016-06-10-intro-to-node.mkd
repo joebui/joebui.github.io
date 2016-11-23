@@ -13,10 +13,8 @@ categories: [languages]
 # What is it???
 
 NodeJS is actually **Javascript** runtime, built on [V8 Javascript Engine of Google Chrome](https://developers.google.com/v8/).
-It uses event-driven and non-blocking I/O model, which I will explain further later, and that is why NodeJS very fast. Node is
-single-process single-threaded, DO NOT misunderstand that it is fast because it is multi-threaded.
-
-Many companies and individuals contribute to NodeJS like IBM, Microsoft, Intel and Google.
+It uses an an event-driven and non-blocking I/O model that make it lightweight and highly scalable. For more information about its artchitecture, you can
+refer to this [link](https://www.tutorialspoint.com/nodejs/nodejs_introduction.htm). Many companies and individuals contribute to NodeJS like IBM, Microsoft, Intel and Google.
 
 # When should I use NodeJS?
 
@@ -29,59 +27,6 @@ NodeJS is fast but it doesn't mean it needs to be applied for all types of web a
 
 It is **NOT** a great idea to use Node for web app that requires heavy computing, CPU-bound and
 mathematically-precised.
-
-# Important concepts of NodeJS
-
-### Event-driven and non-blocking
-
-In the artchitecture of NodeJS, there is a main loop in the singled-thread called **event loop**, it listens for events and trigger a
-callback function when one of the events is detected. Refer the below image for better understanding.
-
-![My helpful screenshot](/img/2016-06-10-intro-to-node/architecture.jpg)
-
-Because it is non-blocking I/O, it does not have to wait for a task to finish to execute another task. Let's have a look at this code snippet
-to understand more:
-
-{% highlight Javascript %}
-var fs = require("fs"); // call fs package
-
-// Read file from input.txt, assume it has 1 line "Hello world".
-fs.readFile('input.txt', function (err, data) {
-    // Return error.
-    if (err){
-        console.log(err.stack);
-        return;
-    }
-    console.log(data.toString());
-});
-
-console.log("Program Ended");
-{% endhighlight %}
-
-When executing this code for the first time, you will expect it will print content from file first then the "Program Ended" line. However, NodeJS
-is non-blocking I/O, it doesn't have to wait for file reading to complete to execute "Progran Ended" line, the result will be
-
-Program Ended
-Hello World
-
-### Callback
-This code snippet is the callback function of the code above:
-
-{% highlight Javascript %}
-function (err, data) {
-    // Return error.
-    if (err){
-        console.log(err.stack);
-        return;
-    }
-    console.log(data.toString());
-});
-{% endhighlight %}
-
-Callback function is called after the async function "readFile" finishes and returns its result in "err" and "data" parameters.
-Not just read file but also async functions to get data from outside source like MySQL and SQLite
-
-If you want to get to know more about them, have a look at this [page](http://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm).
 
 # NPM
 
