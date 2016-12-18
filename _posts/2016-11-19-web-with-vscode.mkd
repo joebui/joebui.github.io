@@ -37,11 +37,11 @@ I assume you have heard of [this IDE](https://code.visualstudio.com/) from Micro
 
 ![eslintrc](/img/2016-11-19-web-with-vscode/img1.png)
 
--   Now you can begin creating the index.js file to run your app and HTML files. After that your project structure will look similar to this picture.
+-   Now you can begin creating the server.js file to run your app and HTML files. After that your project structure will look similar to this picture.
 
 ![structure](/img/2016-11-19-web-with-vscode/img4.png)
 
--   I will go to the index.js file and you will see the IntelliSense
+-   I will go to the server.js file and you will see the IntelliSense
 
 ![vscode](/img/2016-11-19-web-with-vscode/img5.png)
 
