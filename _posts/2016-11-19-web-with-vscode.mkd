@@ -33,7 +33,14 @@ I assume you have heard of [this IDE](https://code.visualstudio.com/) from Micro
 
 ## Setting up project structure
 
--   Enable ESLint for your workspace: type Ctrl (or Cmd for Mac) + Shift + P and create .eslintrc.json file and configure the file to match with your project's properties
+-   Before proceeding, you need to install "eslint" package
+
+```
+$ npm install eslint -g
+```
+
+-   Enable ESLint for your workspace: type Ctrl (or Cmd for Mac) + Shift + P and create .eslintrc.json file and configure the file to match with your project's properties. 
+You can find out more on how to configure .eslintrc.json file from [here](http://eslint.org/).
 
 ![eslintrc](/img/2016-11-19-web-with-vscode/img1.png)
 
@@ -60,7 +67,7 @@ I have talked about the IntelliSense of the Javascript. So how about the HTML fi
 -   Click on the Debug icon on the left pane of the IDE
 -   Click on the Configure icon on top and select Node.js as environment
 -   launch.json file will be created
--   Edit the "program" part in order to point to the start file of the app
+-   Edit the "program" in order to point to the start file of the app
 -   Press Start button in Debug tab to begin running and debugging the app
 -   Set breakpoint at the line of code that you want to debug
 
