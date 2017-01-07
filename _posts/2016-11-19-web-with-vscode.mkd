@@ -20,6 +20,7 @@ I assume you have heard of [this IDE](https://code.visualstudio.com/) from Micro
 -   [HTML CSS Class completion](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
 -   [HTML Snipper](https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets)
 -   [HTML Boilerplate](https://marketplace.visualstudio.com/items?itemName=sidthesloth.html5-boilerplate)
+-   [Bootstrap 3 snippets](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets) - if you want to develop the front-end using Bootstrap
 -   Emmet: don't worry as VS Code supports Emmet by default. You can check out my [post](https://joebui.github.io/news/2015/07/22/emmet.html) about Emmet for more info
 -   If you want to create a single-page application, you can try [Angular 1.x Code Snippet](https://marketplace.visualstudio.com/items?itemName=alexandersage.angular1-code-snippets) for Angular or [Reactjs code snippet](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets) for ReactJS
 
