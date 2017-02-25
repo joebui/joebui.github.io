@@ -1,5 +1,5 @@
 # My personal blog
-This is my blog to share about what I learn about technology for everyone to read. Feel free to contact me if you have any feedback about my posts.
+This is my blog to share about what I learn in software engineering for everyone to read. Feel free to contact me if you have any feedback about my posts.
 
 # License
 Copyright [2016] [Bui Quang Dien]
