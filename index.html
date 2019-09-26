@@ -2,30 +2,7 @@
 layout: default
 ---
 <div class="row">
-  <h2>Recent posts</h2>
-  {% for post in paginator.posts %}
-    <div class="article">
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <h2>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h2>
-      {{ post.excerpt }}
-    </div>
-  {% endfor %}
-
-  <ul class="pagination pagination-lg">
-    {% if paginator.previous_page %}
-      <li><a href="{{ paginator.previous_page_path }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-    {% else %}
-      <li><span aria-hidden="true">&laquo;</span></li>
-    {% endif %}
-
-    <li><span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span></li>
-
-    {% if paginator.next_page %}
-      <li><a href="{{ paginator.next_page_path }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-    {% else %}
-      <li><span aria-hidden="true">&raquo;</span></li>
-    {% endif %}
-  </ul>
+  <h2>Moved to <a href="https://medium.com/">Medium</a></h2>
+  <p>Hi, thank you for visiting my personal blog.</p>
+  <p>I moved to Medium to write blog there, you can find my blog posts at <a href="https://medium.com/@dienbui">@dienbui</a></p>
 </div>
